@@ -17,6 +17,7 @@ namespace HMS_Project
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new doctor_login());
                 mutex.ReleaseMutex();
+
             }
             else
             {
