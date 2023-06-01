@@ -1,22 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace HMS_Project
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        private static Mutex mutex = new Mutex(true, "HMS_Project_Mutex");
+
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SplashScreen());
+            if (mutex.WaitOne(TimeSpan.Zero, true))
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new doctor_login());
+                mutex.ReleaseMutex();
+            }
+            else
+            {
+                MessageBox.Show("Another instance of the application is already running.");
+            }
         }
     }
 }
+
