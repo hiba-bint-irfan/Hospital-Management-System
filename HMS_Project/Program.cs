@@ -15,7 +15,7 @@ namespace HMS_Project
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new doctor_login());
+                Application.Run(new SplashScreen());
                 mutex.ReleaseMutex();
 
             }
