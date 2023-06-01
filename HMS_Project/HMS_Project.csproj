@@ -138,6 +138,12 @@
     <Compile Include="RoomCRUD.designer.cs">
       <DependentUpon>RoomCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="server_connection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="server_connection.designer.cs">
+      <DependentUpon>server_connection.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -197,9 +203,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RoomCRUD.resx">
       <DependentUpon>RoomCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="server_connection.resx">
+      <DependentUpon>server_connection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingUserControl.resx">
       <DependentUpon>SettingUserControl.cs</DependentUpon>
@@ -225,6 +235,9 @@
       <Project>{cd20990a-3025-432d-9599-95d0dd8e4a63}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hospital-Management-System.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

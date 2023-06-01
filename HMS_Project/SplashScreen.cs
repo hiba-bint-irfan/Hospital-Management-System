@@ -34,7 +34,7 @@ namespace HMS_Project
             //after 3 sec stop the timer
             tmr.Stop();
             //display mainform
-            employee_login frm = new employee_login(); 
+            server_con frm = new server_con();
             frm.Show();
             //hide this form
             this.Hide();

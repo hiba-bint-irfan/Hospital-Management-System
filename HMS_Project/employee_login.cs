@@ -27,28 +27,30 @@ namespace HMS_Project
             Regex validateEmailRegex = new Regex("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
             if (textBoxPass.Text.Length != 0 && textBoxUsername.Text.Length != 0)
             {
-                //UserLogin userLogin = new UserLogin()
-                //{
-                //    Username = textBoxUsername.Text,
-                //    Pass = textBoxPass.Text
-                //};
-                //userLogin.login(userLogin);
-                //this.Close();
-
-
                 if (validateEmailRegex.IsMatch(textBoxUsername.Text) == true)
                 {
-                    MessageBox.Show("Successfully Login");
-                    Info.Role = "Employee";
-                    DashBoard dashBoard = new DashBoard();
-                    dashBoard.Show();
-                    this.Close();
+                    employee emp = new employee();
+                    emp.log(textBoxUsername.Text, textBoxPass.Text);
+
+                    if (emp.log_check == true)
+                    {
+                        MessageBox.Show("Successfully Login");
+                        Info.Role = "Employee";
+                        DashBoard dashBoard = new DashBoard();
+                        dashBoard.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Email and pass.....");
+                    }
+
 
                 }
                 else
                 {
                     MessageBox.Show("Invalid Email.....");
-                    
+
                 }
             }
             else
@@ -57,10 +59,10 @@ namespace HMS_Project
                 button1.BackColor = Color.FromArgb(textboxError.ForeColor.ToArgb());
             }
 
-           
 
 
-            
+
+
         }
 
         private void employee_login_Load(object sender, EventArgs e)
@@ -78,6 +80,11 @@ namespace HMS_Project
             doctor_login doc_Log = new doctor_login();
             doc_Log.Show();
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //private void employee_login_Load(object sender, EventArgs e)

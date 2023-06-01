@@ -20,9 +20,7 @@ namespace HMS_Project
         }
 
         public string ID { get; set; }
-        //public string Role { get; set; }
         public string Departmental_ID { get; set; }
-        //string[] roles { get; set; }
         employee_login l = new employee_login();
         private void DashBoard_Load(object sender, EventArgs e)
         {

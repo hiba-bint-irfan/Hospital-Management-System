@@ -25,19 +25,23 @@ namespace HMS_Project
 
             if (textBoxPass.Text.Length != 0 && textBoxUsername.Text.Length != 0)
             {
-                //UserLogin login = new UserLogin();
-                //login.Username = textBoxUsername.Text;
-                //login.Pass = textBoxPass.Text;
-                //DatabaseOps databaseOps = new DatabaseOps();
-                //databaseOps.login(login, "doctorLogin");
-
                 if (validateEmailRegex.IsMatch(textBoxUsername.Text) == true)
                 {
-                    MessageBox.Show("Successfully Login");
-                    Info.Role = "Doctor";
-                    DashBoard dashBoard = new DashBoard();
-                    dashBoard.Show();
-                    this.Close();
+                    doctor doc = new doctor();
+                    doc.log(textBoxUsername.Text, textBoxPass.Text);
+
+                    if (doc.log_check == true)
+                    {
+                        MessageBox.Show("Successfully Login");
+                        Info.Role = "Doctor";
+                        DashBoard dashBoard = new DashBoard();
+                        dashBoard.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Email and pass.....");
+                    }
                 }
                 else
                 {
@@ -52,15 +56,8 @@ namespace HMS_Project
 
 
 
-            
         }
 
-        //private void doctor_login_Load(object sender, EventArgs e)
-        //{
-        //   // DatabaseOps db = new DatabaseOps();
-        //   //// db.makeslotsavailable();
-
-        //}
 
         private void doctor_login_Load(object sender, EventArgs e)
         {
@@ -72,6 +69,11 @@ namespace HMS_Project
             employee_login emp_log = new employee_login();
             emp_log.Show();
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
