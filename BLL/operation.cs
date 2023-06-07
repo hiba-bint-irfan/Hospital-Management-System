@@ -145,27 +145,22 @@ namespace BLL
 
                 else if (tableValue == "ROOM")
 
-
-
                 {
-                    if (searchByValue.ToLower() == "Room No")
+                    if (searchByValue.ToLower() == "room no")
                     {
-                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE ID LIKE '%" + searchValue + "%'");
+                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE ROOM_NO LIKE '%" + searchValue + "%'");
                     }
-
-                    else if (searchByValue.ToLower() == "Type")
+                    else if (searchByValue.ToLower() == "type")
                     {
-                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE ROOM_TYPE LIKE '%" + searchValue + "%'");
+                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE ROOM_STATUS = 'AVAILABLE' AND ROOM_TYPE LIKE '%" + searchValue + "%'");
                     }
-
-                    else if (searchByValue.ToLower() == "Floor No")
+                    else if (searchByValue.ToLower() == "floor no")
                     {
-                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE FLOOR_NO LIKE '%" + searchValue + "%'");
+                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE ROOM_STATUS = 'AVAILABLE' AND FLOOR_NO LIKE '%" + searchValue + "%'");
                     }
-
-                    else if (searchByValue.ToLower() == "Price")
+                    else
                     {
-                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE PRICE_PER_DAY LIKE '%" + searchValue + "%'");
+                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE ROOM_STATUS = 'AVAILABLE'");
                     }
                 }
                 else if (tableValue == "INPATIENTS")
