@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace HMS_Project
 {
@@ -18,7 +19,7 @@ namespace HMS_Project
             //doctorList();
             display();
         }
-
+        int PatID;
 
         //public void doctorList()
         //{
@@ -32,34 +33,36 @@ namespace HMS_Project
 
         public void display()
         {
-            //DatabaseOps databaseOps = new DatabaseOps();
-            //dataGridView1.DataSource = databaseOps.display("PATIENTS");
+            operation op = new operation();
+            dataGridView1.DataSource = op.display("PATIENTS");
         }
 
         private void buttonPATInsert_Click(object sender, EventArgs e)
         {
-            //Patient patient = new Patient()
-            //{
-            //    Name = textBoxPATName.Text,
-            //    Gender = comboBoxPATGender.Text,
-            //    Tel = textBoxPATTel.Text,
-            //    CreatedBy = int.Parse(employeeid.Text),
-            //    Date = dateTimePicker1.Value,
-            //    Email = emailt.Text,
-            //    Address = textBoxPATAddress.Text,
-            //};
-            //DatabaseOps databaseOps = new DatabaseOps();
-            //databaseOps.insert(patient);
-            //display();
+            patient pat = new patient()
+            {
+                Name = textBoxPATName.Text,
+                Gender = comboBoxPATGender.Text,
+                Tel = textBoxPATTel.Text,
+                CreatedBy = int.Parse(employeeid.Text),
+                Date = dateTimePicker1.Value,
+                Email = emailt.Text,
+                Pass = "000",
+                Address = textBoxPATAddress.Text,
+            };
+
+            pat.insertpatient(pat.Name, pat.Tel, pat.Email, pat.Gender, pat.Address, pat.CreatedBy, pat.Date);
+            display();
         }
 
         private void buttonPATDelete_Click(object sender, EventArgs e)
         {
             if (textBoxPATID.Text.Length != 0)
             {
-                //DatabaseOps databaseOps = new DatabaseOps();
-                //databaseOps.delete("PATIENTS", textBoxPATID.Text);
-                //display();
+                patient pat = new patient();
+                pat.deletepatient(PatID);
+                MessageBox.Show("Delete Successfully", "DELETED", MessageBoxButtons.OK);
+                display();
             }
             else
             {
@@ -70,9 +73,10 @@ namespace HMS_Project
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            PatID = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             textBoxPATID.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             textBoxPATName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            
+
             if (dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString() == "Male")
             {
                 comboBoxPATGender.Text = "Male";
@@ -82,7 +86,7 @@ namespace HMS_Project
                 comboBoxPATGender.Text = "Female";
             }
             textBoxPATTel.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            emailt.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString(); 
+            emailt.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             employeeid.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
             dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[8].Value);
             textBoxPATAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
@@ -90,32 +94,25 @@ namespace HMS_Project
 
         private void buttonPATUpdate_Click(object sender, EventArgs e)
         {
-            //Patient patient = new Patient()
-            //{
-            //    ID = textBoxPATID.Text,
-            //    Name = textBoxPATName.Text,
-            //    Gender = comboBoxPATGender.Text,
-            //    Tel = textBoxPATTel.Text,
-            //    Date = dateTimePicker1.Value,
-            //    CreatedBy = int.Parse(employeeid.Text),
-            //    Email = emailt.Text,
-            //    Address = textBoxPATAddress.Text,
-            //};
-            //DatabaseOps databaseOps = new DatabaseOps();
-            //databaseOps.update(patient);
-            //display();
+            patient pat = new patient()
+            {
+                ID = textBoxPATID.Text,
+                Name = textBoxPATName.Text,
+                Gender = comboBoxPATGender.Text,
+                Tel = textBoxPATTel.Text,
+                Date = dateTimePicker1.Value,
+                CreatedBy = int.Parse(employeeid.Text),
+                Email = emailt.Text,
+                Address = textBoxPATAddress.Text,
+            };
+            pat.updatepatient(pat.ID, pat.Name, pat.Tel, pat.Email, pat.Gender, pat.Address, pat.CreatedBy, pat.Date);
+            display();
         }
 
         private void textBoxSearchVal_TextChanged(object sender, EventArgs e)
         {
-            //DatabaseOps databaseOps = new DatabaseOps();
-            //dataGridView1.DataSource = databaseOps.search("PATIENTS", textBoxSearchVal.Text, comboBoxSearchBy.Text);
-        }
-
-        private void buttonPATDisplay_Click(object sender, EventArgs e)
-        {
-            //    OutPatientUserControl outPatientUserControl = new OutPatientUserControl(textBoxPATID.Text, textBoxPATName.Text, comboBoxDOCID.SelectedValue.ToString());
-            //    ControlClass.ShowControl(outPatientUserControl, Content);
+            operation op = new operation();
+            dataGridView1.DataSource = op.search("PATIENTS", textBoxSearchVal.Text, comboBoxSearchBy.Text);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

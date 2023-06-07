@@ -62,7 +62,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBoxSearchBy = new System.Windows.Forms.ComboBox();
             this.comboBoxPATGender = new System.Windows.Forms.ComboBox();
-            this.buttonAppointment = new System.Windows.Forms.Button();
             this.buttonPATUpdate = new System.Windows.Forms.Button();
             this.buttonPATDelete = new System.Windows.Forms.Button();
             this.buttonPATInsert = new System.Windows.Forms.Button();
@@ -174,7 +173,7 @@
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.textBoxEmail.Location = new System.Drawing.Point(216, 183);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(418, 20);
+            this.textBoxEmail.Size = new System.Drawing.Size(418, 16);
             this.textBoxEmail.TabIndex = 6;
             // 
             // label6
@@ -184,7 +183,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label6.Location = new System.Drawing.Point(67, 179);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 20);
+            this.label6.Size = new System.Drawing.Size(52, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "EMAIL:";
             // 
@@ -195,7 +194,7 @@
             this.textBoxDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.textBoxDepartment.Location = new System.Drawing.Point(216, 157);
             this.textBoxDepartment.Name = "textBoxDepartment";
-            this.textBoxDepartment.Size = new System.Drawing.Size(123, 20);
+            this.textBoxDepartment.Size = new System.Drawing.Size(123, 16);
             this.textBoxDepartment.TabIndex = 2;
             // 
             // label8
@@ -205,7 +204,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label8.Location = new System.Drawing.Point(67, 153);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 20);
+            this.label8.Size = new System.Drawing.Size(107, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "DEPARTMENT:";
             // 
@@ -227,7 +226,7 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label7.Location = new System.Drawing.Point(67, 205);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 20);
+            this.label7.Size = new System.Drawing.Size(78, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "ADDRESS:";
             // 
@@ -238,7 +237,7 @@
             this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
             this.textBoxSearch.Location = new System.Drawing.Point(706, 262);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(259, 42);
+            this.textBoxSearch.Size = new System.Drawing.Size(259, 34);
             this.textBoxSearch.TabIndex = 11;
             // 
             // label5
@@ -248,7 +247,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label5.Location = new System.Drawing.Point(362, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 20);
+            this.label5.Size = new System.Drawing.Size(106, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "DESIGNATION:";
             // 
@@ -259,7 +258,7 @@
             this.textBoxDesignation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.textBoxDesignation.Location = new System.Drawing.Point(511, 157);
             this.textBoxDesignation.Name = "textBoxDesignation";
-            this.textBoxDesignation.Size = new System.Drawing.Size(123, 20);
+            this.textBoxDesignation.Size = new System.Drawing.Size(123, 16);
             this.textBoxDesignation.TabIndex = 5;
             // 
             // textBoxTel
@@ -269,7 +268,7 @@
             this.textBoxTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.textBoxTel.Location = new System.Drawing.Point(511, 131);
             this.textBoxTel.Name = "textBoxTel";
-            this.textBoxTel.Size = new System.Drawing.Size(123, 20);
+            this.textBoxTel.Size = new System.Drawing.Size(123, 16);
             this.textBoxTel.TabIndex = 4;
             // 
             // label9
@@ -279,7 +278,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label9.Location = new System.Drawing.Point(362, 127);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 20);
+            this.label9.Size = new System.Drawing.Size(63, 17);
             this.label9.TabIndex = 0;
             this.label9.Text = "TEL NO:";
             // 
@@ -290,7 +289,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label4.Location = new System.Drawing.Point(362, 99);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 20);
+            this.label4.Size = new System.Drawing.Size(71, 17);
             this.label4.TabIndex = 0;
             this.label4.Text = "GENDER:";
             // 
@@ -301,7 +300,7 @@
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.textBoxName.Location = new System.Drawing.Point(216, 131);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(123, 20);
+            this.textBoxName.Size = new System.Drawing.Size(123, 16);
             this.textBoxName.TabIndex = 1;
             // 
             // label3
@@ -311,7 +310,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label3.Location = new System.Drawing.Point(67, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.Size = new System.Drawing.Size(51, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "NAME:";
             // 
@@ -323,7 +322,7 @@
             this.textBoxid.Location = new System.Drawing.Point(216, 105);
             this.textBoxid.Name = "textBoxid";
             this.textBoxid.ReadOnly = true;
-            this.textBoxid.Size = new System.Drawing.Size(123, 20);
+            this.textBoxid.Size = new System.Drawing.Size(123, 16);
             this.textBoxid.TabIndex = 0;
             // 
             // label1
@@ -333,7 +332,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label1.Location = new System.Drawing.Point(67, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 20);
+            this.label1.Size = new System.Drawing.Size(89, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "DOCTOR ID:";
             // 
@@ -344,7 +343,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label2.Location = new System.Drawing.Point(19, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 46);
+            this.label2.Size = new System.Drawing.Size(160, 37);
             this.label2.TabIndex = 1;
             this.label2.Text = "PATIENT";
             // 
@@ -392,7 +391,6 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.comboBoxSearchBy);
             this.panel1.Controls.Add(this.comboBoxPATGender);
-            this.panel1.Controls.Add(this.buttonAppointment);
             this.panel1.Controls.Add(this.buttonPATUpdate);
             this.panel1.Controls.Add(this.buttonPATDelete);
             this.panel1.Controls.Add(this.buttonPATInsert);
@@ -426,7 +424,7 @@
             this.emailt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.emailt.Location = new System.Drawing.Point(511, 56);
             this.emailt.Name = "emailt";
-            this.emailt.Size = new System.Drawing.Size(181, 27);
+            this.emailt.Size = new System.Drawing.Size(181, 22);
             this.emailt.TabIndex = 16;
             // 
             // label13
@@ -436,7 +434,7 @@
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label13.Location = new System.Drawing.Point(383, 54);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(95, 29);
+            this.label13.Size = new System.Drawing.Size(77, 24);
             this.label13.TabIndex = 15;
             this.label13.Text = "EMAIL:";
             // 
@@ -447,7 +445,7 @@
             this.employeeid.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.employeeid.Location = new System.Drawing.Point(243, 172);
             this.employeeid.Name = "employeeid";
-            this.employeeid.Size = new System.Drawing.Size(449, 29);
+            this.employeeid.Size = new System.Drawing.Size(449, 24);
             this.employeeid.TabIndex = 14;
             // 
             // dateTimePicker1
@@ -455,7 +453,7 @@
             this.dateTimePicker1.CalendarTrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.dateTimePicker1.Location = new System.Drawing.Point(243, 212);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(449, 30);
+            this.dateTimePicker1.Size = new System.Drawing.Size(449, 26);
             this.dateTimePicker1.TabIndex = 13;
             // 
             // dataGridView1
@@ -502,7 +500,7 @@
             "Patient Number"});
             this.comboBoxSearchBy.Location = new System.Drawing.Point(860, 217);
             this.comboBoxSearchBy.Name = "comboBoxSearchBy";
-            this.comboBoxSearchBy.Size = new System.Drawing.Size(370, 38);
+            this.comboBoxSearchBy.Size = new System.Drawing.Size(370, 31);
             this.comboBoxSearchBy.TabIndex = 3;
             // 
             // comboBoxPATGender
@@ -519,25 +517,8 @@
             "Other"});
             this.comboBoxPATGender.Location = new System.Drawing.Point(511, 92);
             this.comboBoxPATGender.Name = "comboBoxPATGender";
-            this.comboBoxPATGender.Size = new System.Drawing.Size(181, 33);
+            this.comboBoxPATGender.Size = new System.Drawing.Size(181, 28);
             this.comboBoxPATGender.TabIndex = 3;
-            // 
-            // buttonAppointment
-            // 
-            this.buttonAppointment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
-            this.buttonAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonAppointment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(7)))), ((int)(((byte)(13)))));
-            this.buttonAppointment.Image = ((System.Drawing.Image)(resources.GetObject("buttonAppointment.Image")));
-            this.buttonAppointment.Location = new System.Drawing.Point(971, 144);
-            this.buttonAppointment.Name = "buttonAppointment";
-            this.buttonAppointment.Size = new System.Drawing.Size(259, 46);
-            this.buttonAppointment.TabIndex = 5;
-            this.buttonAppointment.Text = "APPOINTMENT";
-            this.buttonAppointment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAppointment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonAppointment.UseVisualStyleBackColor = false;
-            this.buttonAppointment.Click += new System.EventHandler(this.buttonPATDisplay_Click);
             // 
             // buttonPATUpdate
             // 
@@ -597,7 +578,7 @@
             this.textBoxSearchVal.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.textBoxSearchVal.Location = new System.Drawing.Point(906, 266);
             this.textBoxSearchVal.Name = "textBoxSearchVal";
-            this.textBoxSearchVal.Size = new System.Drawing.Size(324, 29);
+            this.textBoxSearchVal.Size = new System.Drawing.Size(324, 24);
             this.textBoxSearchVal.TabIndex = 6;
             this.textBoxSearchVal.TextChanged += new System.EventHandler(this.textBoxSearchVal_TextChanged);
             // 
@@ -608,7 +589,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label10.Location = new System.Drawing.Point(67, 212);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 29);
+            this.label10.Size = new System.Drawing.Size(59, 24);
             this.label10.TabIndex = 0;
             this.label10.Text = "DOB:";
             // 
@@ -619,7 +600,7 @@
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label11.Location = new System.Drawing.Point(67, 173);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(142, 29);
+            this.label11.Size = new System.Drawing.Size(112, 24);
             this.label11.TabIndex = 0;
             this.label11.Text = "CreatedBy:";
             // 
@@ -641,7 +622,7 @@
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label12.Location = new System.Drawing.Point(67, 258);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(141, 29);
+            this.label12.Size = new System.Drawing.Size(112, 24);
             this.label12.TabIndex = 0;
             this.label12.Text = "ADDRESS:";
             // 
@@ -652,7 +633,7 @@
             this.textBoxPATTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.textBoxPATTel.Location = new System.Drawing.Point(511, 134);
             this.textBoxPATTel.Name = "textBoxPATTel";
-            this.textBoxPATTel.Size = new System.Drawing.Size(181, 27);
+            this.textBoxPATTel.Size = new System.Drawing.Size(181, 22);
             this.textBoxPATTel.TabIndex = 4;
             // 
             // label14
@@ -662,7 +643,7 @@
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label14.Location = new System.Drawing.Point(383, 131);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(114, 29);
+            this.label14.Size = new System.Drawing.Size(91, 24);
             this.label14.TabIndex = 0;
             this.label14.Text = "TEL NO:";
             // 
@@ -673,7 +654,7 @@
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label15.Location = new System.Drawing.Point(383, 93);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(128, 29);
+            this.label15.Size = new System.Drawing.Size(102, 24);
             this.label15.TabIndex = 0;
             this.label15.Text = "GENDER:";
             // 
@@ -684,7 +665,7 @@
             this.textBoxPATName.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.textBoxPATName.Location = new System.Drawing.Point(243, 134);
             this.textBoxPATName.Name = "textBoxPATName";
-            this.textBoxPATName.Size = new System.Drawing.Size(123, 29);
+            this.textBoxPATName.Size = new System.Drawing.Size(123, 24);
             this.textBoxPATName.TabIndex = 1;
             // 
             // label16
@@ -694,7 +675,7 @@
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label16.Location = new System.Drawing.Point(67, 131);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(93, 29);
+            this.label16.Size = new System.Drawing.Size(76, 24);
             this.label16.TabIndex = 0;
             this.label16.Text = "NAME:";
             // 
@@ -706,7 +687,7 @@
             this.textBoxPATID.Location = new System.Drawing.Point(243, 96);
             this.textBoxPATID.Name = "textBoxPATID";
             this.textBoxPATID.ReadOnly = true;
-            this.textBoxPATID.Size = new System.Drawing.Size(123, 29);
+            this.textBoxPATID.Size = new System.Drawing.Size(123, 24);
             this.textBoxPATID.TabIndex = 0;
             // 
             // label17
@@ -716,7 +697,7 @@
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label17.Location = new System.Drawing.Point(702, 221);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(128, 30);
+            this.label17.Size = new System.Drawing.Size(106, 25);
             this.label17.TabIndex = 0;
             this.label17.Text = "SEARCH BY:";
             // 
@@ -727,7 +708,7 @@
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label18.Location = new System.Drawing.Point(702, 265);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(167, 30);
+            this.label18.Size = new System.Drawing.Size(138, 25);
             this.label18.TabIndex = 0;
             this.label18.Text = "SEARCH VALUE:";
             // 
@@ -738,7 +719,7 @@
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label19.Location = new System.Drawing.Point(67, 93);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(162, 29);
+            this.label19.Size = new System.Drawing.Size(128, 24);
             this.label19.TabIndex = 0;
             this.label19.Text = "PATIENT ID:";
             // 
@@ -749,7 +730,7 @@
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
             this.label20.Location = new System.Drawing.Point(19, 20);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(195, 46);
+            this.label20.Size = new System.Drawing.Size(160, 37);
             this.label20.TabIndex = 1;
             this.label20.Text = "PATIENT";
             // 
@@ -765,7 +746,7 @@
             "Other"});
             this.comboBoxGender.Location = new System.Drawing.Point(511, 103);
             this.comboBoxGender.Name = "comboBoxGender";
-            this.comboBoxGender.Size = new System.Drawing.Size(123, 21);
+            this.comboBoxGender.Size = new System.Drawing.Size(123, 17);
             this.comboBoxGender.TabIndex = 3;
             // 
             // PatientCRUD
@@ -811,7 +792,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboBoxSearchBy;
         private System.Windows.Forms.ComboBox comboBoxPATGender;
-        private System.Windows.Forms.Button buttonAppointment;
         private System.Windows.Forms.Button buttonPATUpdate;
         private System.Windows.Forms.Button buttonPATDelete;
         private System.Windows.Forms.Button buttonPATInsert;
