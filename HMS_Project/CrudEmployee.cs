@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace HMS_Project
 {
@@ -16,59 +17,64 @@ namespace HMS_Project
         {
             InitializeComponent();
             display();
-            
-        }
 
+        }
+        int EmpID;
         private void buttonInsert_Click(object sender, EventArgs e)
         {
-            //Employee doctor = new Employee()
-            //{
-            //    Name = textBoxName.Text,
-            //    Gender = comboBoxGender.Text,
-            //    Designation = rolecbx.SelectedItem.ToString(),
-            //    Department = depcbx.SelectedItem.ToString(),
-            //    Pass = password.Text,
-            //    Email = textBoxEmail.Text,
-            //    Address = textBoxAddress.Text,
-            //    Tel = textBoxTel.Text
-            //};
-            //DatabaseOps insertemp= new DatabaseOps();
-            //insertemp.insert(doctor);
-            //display();
+            EmployeeInfo employ = new EmployeeInfo()
+            {
+
+                Name = textBoxName.Text,
+                Gender = comboBoxGender.Text,
+                Designation = rolecbx.SelectedItem.ToString(),
+                Department = depcbx.SelectedItem.ToString(),
+                Pass = password.Text,
+                Email = textBoxEmail.Text,
+                Address = textBoxAddress.Text,
+                Tel = textBoxTel.Text
+            };
+            employee emp = new employee();
+            emp.insertEmp(employ.Name, employ.Gender, employ.Pass, employ.Department, employ.Tel, employ.Email, employ.Address, employ.Designation);
+            display();
         }
 
         public void display()
         {
-            //DatabaseOps insertRoom = new DatabaseOps();
-            //dataGridView1.DataSource = insertRoom.display("ROOM");
+            operation op = new operation();
+            dataGridView1.DataSource = op.display("EMPLOYEE");
+            op.Showincbx(depcbx, "Department", "DepartmentName");
+            op.Showincbx(rolecbx, "EmployeeRoles", "RoleName");
+
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            //Employee doctor = new Employee()
-            //{
-                //ID = textBoxid.Text,
-            //    Name = textBoxName.Text,
-            //    Gender = comboBoxGender.Text,
-            //    Designation = rolecbx.SelectedItem.ToString(),
-            //    Pass = password.Text,
-            //    Department = depcbx.SelectedItem.ToString(),
-            //    Email = textBoxEmail.Text,
-            //    Address = textBoxAddress.Text,
-            //    Tel = textBoxTel.Text
-            //};
-            //DatabaseOps updateDoc = new DatabaseOps();
-            //updateDoc.update(doctor);
-            //display();
+            EmployeeInfo employ = new EmployeeInfo()
+            {
+                ID = textBoxid.Text,
+                Name = textBoxName.Text,
+                Gender = comboBoxGender.Text,
+                Designation = rolecbx.SelectedItem.ToString(),
+                Pass = password.Text,
+                Department = depcbx.SelectedItem.ToString(),
+                Email = textBoxEmail.Text,
+                Address = textBoxAddress.Text,
+                Tel = textBoxTel.Text
+            };
+            employee emp = new employee();
+            emp.updateEmp(employ.ID, employ.Name, employ.Gender, employ.Pass, employ.Department, employ.Tel, employ.Email, employ.Address, employ.Designation);
+            display();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (textBoxid.Text.Length != 0)
             {
-                //DatabaseOps databaseOps = new DatabaseOps();
-                //databaseOps.delete("EMPLOYEE", textBoxid.Text);
-                //display();
+                employee emp = new employee();
+                emp.deleteEmp(EmpID);
+                MessageBox.Show("Delete Successfully", "DELETED", MessageBoxButtons.OK);
+                display();
             }
             else
             {
@@ -78,17 +84,20 @@ namespace HMS_Project
 
         private void buttonDisplay_Click(object sender, EventArgs e)
         {
-            //display();
+            display();
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-
+            operation op = new operation();
+            dataGridView1.DataSource = op.search("EMPLOYEE", textBoxSearch.Text, comboBoxSearchBy.Text);
 
         }
 
+
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            EmpID = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             textBoxid.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             textBoxName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             if (dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() == "Male")
@@ -99,11 +108,11 @@ namespace HMS_Project
             {
                 comboBoxGender.Text = "Female";
             }
-            password.Text= dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            password.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             depcbx.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
             textBoxTel.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
             textBoxEmail.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-            
+
             textBoxAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
             rolecbx.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
 
