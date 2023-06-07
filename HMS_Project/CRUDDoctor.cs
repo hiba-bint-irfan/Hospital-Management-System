@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Xml;
+using BLL;
 
 namespace HMS_Project
 {
@@ -28,32 +29,37 @@ namespace HMS_Project
         private void buttonInsert_Click(object sender, EventArgs e)
         {
 
-            //Doctor doctor = new Doctor()
-            //{
-            //    Name = textBoxName.Text,
-            //    Gender = comboBoxGender.Text,
-            //    Designation = rolecbx.SelectedItem.ToString(),
-            //    Department = depcbx.SelectedItem.ToString(),
-            //    Email = textBoxEmail.Text,
-            //    Address = textBoxAddress.Text,
-            //    Tel = textBoxTel.Text,
-            //    starttime = dateTimePicker1.Value,
-            //    endtime = dateTimePicker2.Value,
-            //    PricePerAppointment = int.Parse(priceperappointment.Text),
-            //};
-            //DatabaseOps insertDoc = new DatabaseOps();
-            //insertDoc.insert(doctor);
-            //display();
-            ////doctor.addEmployee(doctor);
+            DoctorInfo doctor = new DoctorInfo()
+            {
+                Name = textBoxName.Text,
+                Gender = comboBoxGender.Text,
+                Designation = rolecbx.SelectedItem.ToString(),
+                Department = depcbx.SelectedItem.ToString(),
+                Email = textBoxEmail.Text,
+                Password = textBoxPass.Text,
+                Address = textBoxAddress.Text,
+                Tel = textBoxTel.Text,
+                starttime = dateTimePicker1.Value,
+                endtime = dateTimePicker2.Value,
+                PricePerAppointment = int.Parse(priceperappointment.Text),
+            };
+            doctor insertDoc = new doctor();
+            insertDoc.insertDoc(doctor.Name, doctor.Department, doctor.Tel, doctor.Email, doctor.Password, doctor.Gender, doctor.Address, doctor.Designation, doctor.PricePerAppointment);
+            display();
+            //doctor.addEmployee(doctor);
         }
 
         private void buttonDisplay_Click(object sender, EventArgs e)
         {
             display();
+            doctor d = new doctor();
+            DataTable data = d.SelectDoc();
+            dataGridView1.DataSource = data;
         }
         int DoctorID;
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            display();
             DoctorID = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             textBoxid.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             textBoxName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -70,47 +76,47 @@ namespace HMS_Project
             }
             textBoxAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
             rolecbx.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-            //dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString());
-            //dateTimePicker2.Value = Convert.ToDateTime();
             priceperappointment.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
-            //dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString());
-            //dateTimePicker2.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString());
+
 
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            //Doctor doctor = new Doctor()
-            //{
-            //    ID = textBoxid.Text,
-            //    Name = textBoxName.Text,
-            //    Gender = comboBoxGender.Text,
-            //    Designation = rolecbx.SelectedItem.ToString(),
-            //    Department = depcbx.SelectedItem.ToString(),
-            //    Email = textBoxEmail.Text,
-            //    Address = textBoxAddress.Text,
-            //    Password = "123456865",
-            //    Tel = textBoxTel.Text,
-            //    starttime = dateTimePicker1.Value,
-            //    endtime = dateTimePicker2.Value,
-            //    PricePerAppointment = int.Parse(priceperappointment.Text),
-            //};
-            //DatabaseOps updateDoc = new DatabaseOps();
+            DoctorInfo doctor = new DoctorInfo()
+            {
+                ID = textBoxid.Text,
+                Name = textBoxName.Text,
+                Gender = comboBoxGender.Text,
+                Designation = rolecbx.SelectedItem.ToString(),
+                Department = depcbx.SelectedItem.ToString(),
+                Email = textBoxEmail.Text,
+                Address = textBoxAddress.Text,
+                Password = textBoxPass.Text,
+                Tel = textBoxTel.Text,
+                starttime = dateTimePicker1.Value,
+                endtime = dateTimePicker2.Value,
+                PricePerAppointment = int.Parse(priceperappointment.Text),
+            };
+            doctor updateDoc = new doctor();
             //updateDoc.DeleteTimeSlots(DoctorID);
-            //updateDoc.update(doctor);
-            //display();
-            //doctor.addEmployee(doctor);
+            updateDoc.updateDoc(doctor.ID, doctor.Name, doctor.Department, doctor.Tel, doctor.Email, doctor.Password, doctor.Gender, doctor.Address, doctor.Designation, doctor.PricePerAppointment);
+            display();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (textBoxid.Text.Length != 0)
             {
-                //DatabaseOps databaseOps = new DatabaseOps();
-                //DatabaseOps db = new DatabaseOps();
+
                 //databaseOps.DeleteTimeSlots(DoctorID);
-                //db.delete("DOCTORS", textBoxid.Text);
-                //display();
+
+
+                doctor d = new doctor();
+                d.deleteDoc(DoctorID);
+                MessageBox.Show("Delete Successfully", "DELETED", MessageBoxButtons.OK);
+                display();
+
             }
             else
             {
@@ -120,18 +126,19 @@ namespace HMS_Project
 
         public void display()
         {
-            //DatabaseOps databaseOps = new DatabaseOps();
-            //DataTable dt = new DataTable();
-            //dataGridView1.DataSource = databaseOps.display("DOCTORS");
-            //databaseOps.Showincbx(depcbx, "Department", "DepartmentName");
-            //databaseOps.Showincbx(rolecbx, "DoctorRoles", "Rolename");
+            doctor d = new doctor();
+            operation op = new operation();
+            dataGridView1.DataSource = op.display("DOCTORS");
+            op.Showincbx(depcbx, "Department", "DepartmentName");
+            op.Showincbx(rolecbx, "DoctorRoles", "Rolename");
+
 
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            //DatabaseOps databaseOps = new DatabaseOps();
-            //dataGridView1.DataSource = databaseOps.search("DOCTORS", textBoxSearch.Text, comboBoxSearchBy.Text);
+            operation op = new operation();
+            dataGridView1.DataSource = op.search("DOCTORS", textBoxSearch.Text, comboBoxSearchBy.Text);
         }
 
         private void Content_Paint(object sender, PaintEventArgs e)

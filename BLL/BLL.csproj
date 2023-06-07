@@ -49,6 +49,7 @@
     <Compile Include="connection.cs" />
     <Compile Include="controlClass.cs" />
     <Compile Include="doctor.cs" />
+    <Compile Include="DoctorInfo.cs" />
     <Compile Include="employee.cs" />
     <Compile Include="EmployeeInfo.cs" />
     <Compile Include="Form1.cs">
@@ -58,7 +59,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Info.cs" />
-    <Compile Include="patient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
