@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace HMS_Project
 {
@@ -19,12 +20,22 @@ namespace HMS_Project
         {
             InitializeComponent();
             ID = id;
+            display();
         }
 
+        public void display()
+        {
+            doctor d = new doctor();
+            dataGridViewINP.DataSource = d.doctosPatient(ID);
+        }
+
+        private void DoctorsPatientListControl_Load(object sender, EventArgs e)
+        {
+            display();
+        }
         private void dataGridViewINP_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            textBoxInpatientID.Text = dataGridViewINP.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBoxPatientName.Text = dataGridViewINP.Rows[e.RowIndex].Cells[2].Value.ToString();
+            
         }
 
         private void buttonPATDelete_Click(object sender, EventArgs e)

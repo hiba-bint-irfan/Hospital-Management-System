@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace HMS_Project
 {
@@ -22,17 +23,17 @@ namespace HMS_Project
         {
             if (textBoxRoomNo.Text.Length != 0 && comboBoxFloorNo.Text.Length != 0)
             {
-                //Room room = new Room()
-                //{
-                //    Room_No = int.Parse(textBoxRoomNo.Text),
-                //    Room_status = comboBoxStatus.Text,
-                //    Room_type = comboBoxType.Text,
-                //    Floor_No = char.Parse(comboBoxFloorNo.Text),
-                //};
-                //room.setPricePerHour();
-                //DatabaseOps insertRoom = new DatabaseOps();
-                //insertRoom.insert(room);
-                //display();
+                Room room = new Room()
+                {
+                    Room_No = int.Parse(textBoxRoomNo.Text),
+                    Room_status = comboBoxStatus.Text,
+                    Room_type = comboBoxType.Text,
+                    Floor_No = char.Parse(comboBoxFloorNo.Text),
+                };
+                room.setPricePerHour();
+                
+                room.insertroom(room.Room_No,room.Floor_No,room.Room_status,room.Room_type,room.Price_Per_Hour);
+                display();
             }
             else
             {
@@ -47,17 +48,17 @@ namespace HMS_Project
 
         public void display()
         {
-            //DatabaseOps insertRoom = new DatabaseOps();
-            //dataGridView1.DataSource = insertRoom.display("ROOM");
+            operation op = new operation();
+            dataGridView1.DataSource = op.display("ROOM");
         }
 
         private void buttonRoomDelete_Click(object sender, EventArgs e)
         {
             if (textBoxRoomID.Text.Length != 0)
             {
-                //DatabaseOps databaseOps = new DatabaseOps();
-                //databaseOps.delete("ROOM", textBoxRoomNo.Text);
-                //display();
+                Room r = new Room();
+                r.deleteroom(textBoxRoomNo.Text);
+                display();
             }
             else
             {
@@ -69,17 +70,16 @@ namespace HMS_Project
         {
             if (textBoxRoomNo.Text.Length != 0 && comboBoxFloorNo.Text.Length != 0)
             {
-                //Room room = new Room()
-                //{
-                //    Room_No = int.Parse(textBoxRoomNo.Text),
-                //    Room_status = comboBoxStatus.Text,
-                //    Room_type = comboBoxType.Text,
-                //    Floor_No = char.Parse(comboBoxFloorNo.Text),
-                //};
-                //room.setPricePerHour();
-                //DatabaseOps updateRoom = new DatabaseOps();
-                //updateRoom.update(room);
-                //display();
+                Room room = new Room()
+                {
+                    Room_No = int.Parse(textBoxRoomNo.Text),
+                    Room_status = comboBoxStatus.Text,
+                    Room_type = comboBoxType.Text,
+                    Floor_No = char.Parse(comboBoxFloorNo.Text),
+                };
+                room.setPricePerHour();
+                room.updateroom(room.Room_No, room.Floor_No, room.Room_status,room.Room_type, room.Price_Per_Hour);
+                display();
             }
             else
             {
@@ -89,8 +89,8 @@ namespace HMS_Project
 
         private void textBoxSearchValue_TextChanged(object sender, EventArgs e)
         {
-            //DatabaseOps databaseOps = new DatabaseOps();
-            //dataGridView1.DataSource = databaseOps.search(textBoxSearchValue.Text, comboBoxSearchBy.Text);
+            operation op = new operation();
+            dataGridView1.DataSource = op.search("ROOM", textBoxSearchValue.Text, comboBoxSearchBy.Text);
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

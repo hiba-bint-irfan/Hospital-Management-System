@@ -20,7 +20,10 @@ namespace HMS_Project
         }
 
         public string ID { get; set; }
+        public string UserName { get; set; }
+
         public string Departmental_ID { get; set; }
+        string[] roles { get; set; }
         employee_login l = new employee_login();
         private void DashBoard_Load(object sender, EventArgs e)
         {
@@ -34,10 +37,12 @@ namespace HMS_Project
             }
             else
             {
-                DoctorHomeUserControl doctorHomeUserControl = new DoctorHomeUserControl(ID, Departmental_ID);
+                doctor d = new doctor();
+                ID = Convert.ToString(d.GetDocId());
+                DoctorHomeUserControl doctorHomeUserControl = new DoctorHomeUserControl(ID);
                 controlClass.ShowControl(doctorHomeUserControl, Content);
                 buttonBed.Visible = false;
-                //buttonDoctor.Visible = false;
+
             }
         }
 
@@ -50,7 +55,7 @@ namespace HMS_Project
             }
             else
             {
-                DoctorHomeUserControl doctorHomeUserControl = new DoctorHomeUserControl(ID, Departmental_ID);
+                DoctorHomeUserControl doctorHomeUserControl = new DoctorHomeUserControl(ID);
                 controlClass.ShowControl(doctorHomeUserControl, Content);
             }
         }
@@ -100,6 +105,8 @@ namespace HMS_Project
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
+            doctor d = new doctor();
+            ID = Convert.ToString(d.GetDocId());
             SettingUserControl settingUserControl = new SettingUserControl(ID);
             controlClass.ShowControl(settingUserControl, Content);
         }

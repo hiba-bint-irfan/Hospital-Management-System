@@ -148,24 +148,13 @@ namespace BLL
 
 
                 {
-                    if (searchByValue.ToLower() == "Room No")
                     {
-                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE ID LIKE '%" + searchValue + "%'");
                     }
-
-                    else if (searchByValue.ToLower() == "Type")
                     {
-                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE ROOM_TYPE LIKE '%" + searchValue + "%'");
                     }
-
-                    else if (searchByValue.ToLower() == "Floor No")
                     {
-                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE FLOOR_NO LIKE '%" + searchValue + "%'");
                     }
-
-                    else if (searchByValue.ToLower() == "Price")
                     {
-                        dalObj.ExecuteValue("SELECT * FROM ROOM WHERE PRICE_PER_DAY LIKE '%" + searchValue + "%'");
                     }
                 }
                 else if (tableValue == "INPATIENTS")

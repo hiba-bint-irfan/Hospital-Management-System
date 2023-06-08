@@ -13,11 +13,10 @@ namespace HMS_Project
 {
     public partial class DoctorHomeUserControl : UserControl
     {
-        public DoctorHomeUserControl(string iD, string depart_id)
+        public DoctorHomeUserControl(string iD)
         {
             InitializeComponent();
             ID = iD;
-            Departmental_ID = depart_id;
         }
 
         public string ID { get; set; }
