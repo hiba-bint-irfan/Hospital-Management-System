@@ -140,5 +140,10 @@ namespace HMS_Project
         {
 
         }
+
+        private void Content_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -91,6 +91,7 @@
             this.Content.Name = "Content";
             this.Content.Size = new System.Drawing.Size(1264, 626);
             this.Content.TabIndex = 2;
+            this.Content.Paint += new System.Windows.Forms.PaintEventHandler(this.Content_Paint);
             // 
             // SideBar
             // 
