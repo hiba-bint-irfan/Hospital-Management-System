@@ -151,7 +151,7 @@
             this.comboBoxSearchBy.Items.AddRange(new object[] {
             "Current Appointments",
             "All Appointments"});
-            this.comboBoxSearchBy.Location = new System.Drawing.Point(133, 37);
+            this.comboBoxSearchBy.Location = new System.Drawing.Point(206, 55);
             this.comboBoxSearchBy.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSearchBy.Name = "comboBoxSearchBy";
             this.comboBoxSearchBy.Size = new System.Drawing.Size(103, 32);
@@ -172,7 +172,7 @@
             this.dataGridViewINP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewINP.ColumnHeadersHeight = 40;
             this.dataGridViewINP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridViewINP.Location = new System.Drawing.Point(20, 71);
+            this.dataGridViewINP.Location = new System.Drawing.Point(20, 149);
             this.dataGridViewINP.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewINP.Name = "dataGridViewINP";
             this.dataGridViewINP.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -186,7 +186,7 @@
             this.dataGridViewINP.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewINP.RowHeadersWidth = 50;
             this.dataGridViewINP.RowTemplate.Height = 24;
-            this.dataGridViewINP.Size = new System.Drawing.Size(441, 256);
+            this.dataGridViewINP.Size = new System.Drawing.Size(880, 260);
             this.dataGridViewINP.TabIndex = 21;
             this.dataGridViewINP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewINP_CellContentClick);
             // 
@@ -195,7 +195,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(171)))), ((int)(((byte)(226)))));
-            this.label17.Location = new System.Drawing.Point(17, 45);
+            this.label17.Location = new System.Drawing.Point(17, 63);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(93, 24);

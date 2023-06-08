@@ -24,7 +24,6 @@ namespace BLL
 
         public int GetDocId()
         {
-            MessageBox.Show("USERNAME:" + Username);
             Database dalObj = new Database();
             dalObj.OpenConnection();
             ID = Convert.ToInt32(dalObj.ExecuteValue("select ID from DOCTORS where DOC_EMAIL = 'hiba1@gmail.com'"));
@@ -141,6 +140,34 @@ namespace BLL
         }
 
 
+        public DataTable doctosPatient(string docID)
+        {
+            Database dalObj = new Database();
 
+            dalObj.OpenConnection();
+            dalObj.ExecuteValue("SELECT PAT_ID, PAT_NAME, PAT_GENDER, PAT_TEL, PAT_EMAIL, PAT_ADDRESS FROM PATIENTS INNER JOIN APPOINTMENT ON APPOINTMENT.PAT_CODE =PATIENTS.ID  where  DOC_CODE = '" + docID + "'");
+
+            DataTable data = dalObj.GetDataTable();
+            dalObj.UnLoadSpParameters();
+            dalObj.CloseConnection();
+            return data;
+        }
+        public DataTable GetAppointmentofDoctor(int docid)
+        {
+            Database dalObj = new Database();
+
+            dalObj.OpenConnection();
+            dalObj.ExecuteValue(@"select slotstart as Start_Timings,slotend as End_Timings,CHECKUP_DATE,PATIENTS.PAT_NAME,DOCTORS.DOC_NAME from APPOINTMENT inner join timeSlots on timeSlots.id =Slot_ID
+                                                   inner join DOCTORS on DOCTORS.ID = DOC_CODE inner join PATIENTS on PATIENTS.ID = PAT_CODE where APPOINTMENT.DOC_CODE = " + docid + "");
+
+
+            DataTable data = dalObj.GetDataTable();
+            dalObj.UnLoadSpParameters();
+            dalObj.CloseConnection();
+            return data;
+        }
     }
+
+
+    
 }

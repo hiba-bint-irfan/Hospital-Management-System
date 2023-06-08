@@ -37,7 +37,9 @@ namespace HMS_Project
             }
             else
             {
-                DoctorHomeUserControl doctorHomeUserControl = new DoctorHomeUserControl(ID, Departmental_ID);
+                doctor d = new doctor();
+                ID = Convert.ToString(d.GetDocId());
+                DoctorHomeUserControl doctorHomeUserControl = new DoctorHomeUserControl(ID);
                 controlClass.ShowControl(doctorHomeUserControl, Content);
                 buttonBed.Visible = false;
 
@@ -53,7 +55,7 @@ namespace HMS_Project
             }
             else
             {
-                DoctorHomeUserControl doctorHomeUserControl = new DoctorHomeUserControl(ID, Departmental_ID);
+                DoctorHomeUserControl doctorHomeUserControl = new DoctorHomeUserControl(ID);
                 controlClass.ShowControl(doctorHomeUserControl, Content);
             }
         }

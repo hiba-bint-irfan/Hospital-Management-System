@@ -117,17 +117,11 @@ namespace BLL
         public DataTable patientList()
         {
             Database dalObj = new Database();
-            try
-            {
-                dalObj.OpenConnection();
-                dalObj.LoadSpParameters("sp_SelectPaitents");
-                dalObj.ExecuteQuery();
-            }
-
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+            dalObj.OpenConnection();
+            dalObj.LoadSpParameters("sp_SelectPaitents");
+            dalObj.ExecuteQuery();
+            
             DataTable dataTable = dalObj.GetDataTable();
             dalObj.UnLoadSpParameters();
             dalObj.CloseConnection();
