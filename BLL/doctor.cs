@@ -11,10 +11,29 @@ namespace BLL
 {
     public class doctor : connection
     {
+        public int ID;
+        public string deptid;
+        public string Role;
+        public string Username;
         public override void log(string username, string pass)
         {
             storedProcedure = "sp_LogDoctor";
             base.log(username, pass);
+            Username = username;
+        }
+
+        public int GetDocId()
+        {
+            MessageBox.Show("USERNAME:" + Username);
+            Database dalObj = new Database();
+            dalObj.OpenConnection();
+            ID = Convert.ToInt32(dalObj.ExecuteValue("select ID from DOCTORS where DOC_EMAIL = 'hiba1@gmail.com'"));
+            //dalObj.ExecuteQuery();
+
+
+            dalObj.UnLoadSpParameters();
+            dalObj.CloseConnection();
+            return ID;
         }
 
         public void insertDoc(string _pName, string _Department, string _Tel, string _Email, string _pass, string _gender, string _Address, string _Designation, int _PricePerAppointment)
@@ -67,10 +86,61 @@ namespace BLL
             return data;
         }
 
-        
 
-       
+        public DataTable DepartmentList()
+        {
+            Database dalObj = new Database();
+            try
+            {
+                dalObj.OpenConnection();
+                dalObj.ExecuteValue("SELECT * FROM Department ORDER BY DepartmentName");
+            }
 
-        
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            DataTable data = dalObj.GetDataTable();
+            dalObj.UnLoadSpParameters();
+            dalObj.CloseConnection();
+            return data;
+        }
+
+        public DataTable RoleList()
+        {
+            Database dalObj = new Database();
+            try
+            {
+                dalObj.OpenConnection();
+                dalObj.ExecuteValue("SELECT * FROM DoctorRoles ORDER BY Rolename");
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            DataTable data = dalObj.GetDataTable();
+            dalObj.UnLoadSpParameters();
+            dalObj.CloseConnection();
+            return data;
+        }
+
+        public DataTable getEmployeeDetail(string id)
+        {
+            Database dalObj = new Database();
+            
+            dalObj.OpenConnection();
+            dalObj.ExecuteValue(@"SELECT Doctors.ID,Doctors.DOC_ID,Doctors.DOC_NAME,Department.DepartmentName,Doctors.DOC_TEL,Doctors.DOC_EMAIL,Doctors.DOC_PASS,Doctors.DOC_GENDER,Doctors.DOC_ADDRESS,DoctorRoles.Rolename,DOCTORS.PricePerAppointment from Doctors 
+                                                        inner join Department on Department.ID = Doctors.DOC_DEP_ID
+                                                        inner join DoctorRoles on DoctorRoles.ID = Doctors.DOC_Role_ID WHERE Doctors.ID = " + int.Parse(id) + "");
+            
+            DataTable data = dalObj.GetDataTable();
+            dalObj.UnLoadSpParameters();
+            dalObj.CloseConnection();
+            return data;
+        }
+
+
+
     }
 }

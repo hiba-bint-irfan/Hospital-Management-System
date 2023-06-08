@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="appointment.cs" />
     <Compile Include="connection.cs" />
     <Compile Include="controlClass.cs" />
     <Compile Include="doctor.cs" />

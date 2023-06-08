@@ -34,8 +34,11 @@ namespace HMS_Project
                     {
                         MessageBox.Show("Successfully Login");
                         Info.Role = "Doctor";
+                        doc.Username = textBoxUsername.Text;
                         DashBoard dashBoard = new DashBoard();
+                        dashBoard.UserName = textBoxUsername.Text;
                         dashBoard.Show();
+
                         this.Close();
                     }
                     else

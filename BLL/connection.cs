@@ -77,16 +77,23 @@ namespace BLL
             }
         }
 
+        
         public bool log_check { get; set; }
         public virtual void log(string username, string pass)
         {
             dalObj = new DAL.Database();
             dalObj.OpenConnection();
-            dalObj.LoadSpParameters(storedProcedure, username, pass);
-            dalObj.ExecuteQuery();
-            bool isMatch = dalObj.GetDataReader().HasRows;
+            bool isMatch;
+
+                dalObj.LoadSpParameters(storedProcedure, username, pass);
+                dalObj.ExecuteQuery();
+                isMatch = dalObj.GetDataReader().HasRows;
+                
+            
             dalObj.UnLoadSpParameters();
-            dalObj.CloseConnection();
+                dalObj.CloseConnection();
+            
+            
             if (isMatch)
             {
                 log_check = true;
